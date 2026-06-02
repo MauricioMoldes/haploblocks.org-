@@ -89,7 +89,7 @@ export default function App() {
 
       <div className="flex justify-between text-xs">
         <span>Haploblock</span>
-        <span className="font-mono">101100101001...</span>
+        <span className="font-mono">101100101001</span>
       </div>
 
       <div className="flex justify-between text-xs">
@@ -142,141 +142,161 @@ export default function App() {
         </div>
       </section>
 
-    {/* RESULTS */}
-<section id="results" className="max-w-6xl mx-auto px-8 py-24">
+ {/* RESULTS */}
+<section
+  id="results"
+  className="bg-slate-50 border-y border-slate-200"
+>
+  <div className="max-w-6xl mx-auto px-8 py-24">
 
-  <h2 className="text-3xl font-bold mb-4">
-    Results
-  </h2>
+    {/* HEADER */}
+    <h2 className="text-3xl font-bold mb-4">
+      Results
+    </h2>
 
-  <p className="text-slate-600 max-w-3xl mb-16 text-lg leading-relaxed">
-    We applied the Haploblocks pipeline to the 1000 Genomes Project using the
-    GRCh38 reference genome and genome-wide recombination maps. Across all
-    autosomes and chromosome X, we identified recombination-defined genomic
-    regions that serve as the foundation for genomic hash generation and
-    downstream genotype–phenotype modeling.
+    <p className="text-slate-600 max-w-3xl mb-16 text-lg leading-relaxed">
+      We applied the Haploblocks pipeline to the 1000 Genomes Project using the
+      GRCh38 reference genome and genome-wide recombination maps. Across all
+      autosomes and chromosome X, we identified recombination-defined genomic
+      regions that serve as the foundation for genomic hash generation and
+      downstream genotype–phenotype modeling.
+    </p>
+
+    {/* DATASET */}
+    <div className="mb-20">
+      <h3 className="text-xl font-semibold mb-6">
+        Dataset
+      </h3>
+
+      <div className="grid md:grid-cols-3 gap-6">
+
+        <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          <div className="text-sm text-slate-500 mb-2">Cohort</div>
+          <div className="text-2xl font-bold">1000 Genomes Project</div>
+          <div className="mt-3 text-sm text-slate-600">
+            2,548 individuals across 26 populations.
+          </div>
+        </div>
+
+        <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          <div className="text-sm text-slate-500 mb-2">Reference Genome</div>
+          <div className="text-2xl font-bold">GRCh38</div>
+          <div className="mt-3 text-sm text-slate-600">
+            UCSC Genome Browser assembly.
+          </div>
+        </div>
+
+        <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          <div className="text-sm text-slate-500 mb-2">Coverage</div>
+          <div className="text-2xl font-bold">chr1–22 + chrX</div>
+          <div className="mt-3 text-sm text-slate-600">
+            Whole-genome haploblock segmentation using recombination maps.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    {/* HAPLOBLOCK DISCOVERY */}
+    <div className="mb-16">
+
+      <h3 className="text-xl font-semibold mb-6">
+        Haploblock Discovery
+      </h3>
+
+      <div className="grid md:grid-cols-4 gap-6">
+
+        {[
+          { value: "39,141", label: "Haploblocks" },
+          { value: "2,548", label: "Individuals" },
+          { value: "26", label: "Populations" },
+          { value: "23", label: "Chromosomes" }
+        ].map((item) => (
+          <div
+            key={item.label}
+            className="rounded-2xl bg-gradient-to-b from-slate-900 to-slate-800 text-white p-8 text-center shadow-lg"
+          >
+            <div className="text-4xl font-bold">
+              {item.value}
+            </div>
+            <div className="mt-2 text-slate-300">
+              {item.label}
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </div>
+
+    {/* FIGURES */}
+    <div>
+
+      <h3 className="text-xl font-semibold mb-6">
+        Genome-wide structure
+      </h3>
+
+      <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory">
+
+        {[
+          { t: "Size distribution", i: "01_size_distribution.png" },
+          { t: "Blocks per chromosome", i: "04_blocks_per_chr.png" },
+          { t: "Mean size per chromosome", i: "05_mean_size_chr.png" },
+          { t: "ECDF distribution", i: "03_ecdf.png" },
+          { t: "Chromosome variability", i: "02_chr_boxplot.png" },
+          { t: "Size vs genomic position", i: "06_size_vs_position.png" },
+          { t: "Genomic hash density", i: "07_density.png" },
+        ].map((f) => (
+          <div key={f.i} className="min-w-[85%] snap-center">
+
+            <div className="mb-3 text-sm font-medium text-slate-700">
+              {f.t}
+            </div>
+
+            <img
+              src={`/figures/${f.i}`}
+              className="rounded-xl border bg-white shadow-sm"
+            />
+
+          </div>
+        ))}
+
+      </div>
+    </div>
+
+    {/* CLUSTERING RESULTS */}
+<div className="mb-20">
+
+  <h3 className="text-xl font-semibold mb-4">
+    Haploblock Clustering
+  </h3>
+
+  <p className="text-slate-600 max-w-3xl mb-8">
+    Individuals sharing highly similar haplotypes within a haploblock are
+    grouped into clusters. Across populations, a small number of common
+    haplotypes account for most individuals, while a long tail of rare
+    clusters captures population-specific genomic diversity.
   </p>
 
-  {/* DATASET */}
-  <div className="mb-20">
-    <h3 className="text-xl font-semibold mb-6">
-      Dataset
-    </h3>
+  <div className="grid md:grid-cols-2 gap-8">
 
-    <div className="grid md:grid-cols-3 gap-6">
-
-      <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
-        <div className="text-sm text-slate-500 mb-2">
-          Cohort
-        </div>
-
-        <div className="text-2xl font-bold">
-          1000 Genomes Project
-        </div>
-
-        <div className="mt-3 text-sm text-slate-600">
-          Population-scale variant dataset comprising 2,548 individuals from
-          26 worldwide populations.
-        </div>
-      </div>
-
-      <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
-        <div className="text-sm text-slate-500 mb-2">
-          Reference Genome
-        </div>
-
-        <div className="text-2xl font-bold">
-          GRCh38
-        </div>
-
-        <div className="mt-3 text-sm text-slate-600">
-          Human reference assembly obtained from the UCSC Genome Browser.
-        </div>
-      </div>
-
-      <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
-        <div className="text-sm text-slate-500 mb-2">
-          Genome Coverage
-        </div>
-
-        <div className="text-2xl font-bold">
-          chr1–22 + chrX
-        </div>
-
-        <div className="mt-3 text-sm text-slate-600">
-          Whole-genome haploblock discovery using empirical recombination maps.
-        </div>
-      </div>
-
+    <div className="bg-white rounded-2xl border p-4">
+      <img src="/figures/haplotype_rank_abundance.png" />
     </div>
+
+    <div className="bg-white rounded-2xl border p-4">
+      <img src="/figures/haplotype_bar_linear.png" />
+    </div>
+
   </div>
 
-  {/* HAPLOBLOCK DISCOVERY */}
-  <div className="mb-20">
-    <h3 className="text-xl font-semibold mb-6">
-      Haploblock Discovery
-    </h3>
+</div>
 
-    <div className="grid md:grid-cols-4 gap-6">
-
-      {[
-        {
-          value: "39,141",
-          label: "Haploblocks"
-        },
-        {
-          value: "2,548",
-          label: "Individuals"
-        },
-        {
-          value: "26",
-          label: "Populations"
-        },
-        {
-          value: "23",
-          label: "Chromosomes"
-        }
-      ].map((item) => (
-        <div
-          key={item.label}
-          className="rounded-2xl bg-gradient-to-b from-slate-900 to-slate-800 text-white p-8 text-center shadow-lg"
-        >
-          <div className="text-4xl font-bold">
-            {item.value}
-          </div>
-
-          <div className="mt-2 text-slate-300">
-            {item.label}
-          </div>
-        </div>
-      ))}
-
-    </div>
   </div>
-
 </section>
 
-      {/* RESULTS */}
-      <section id="results" className="max-w-6xl mx-auto px-8 py-24">
-        <h2 className="text-3xl font-bold mb-10">Results</h2>
-
-        <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory">
-          {[
-            { t: "Haploblock size distribution", i: "01_size_distribution.png" },
-            { t: "Blocks per chromosome", i: "04_blocks_per_chr.png" },
-            { t: "Mean size per chromosome", i: "05_mean_size_chr.png" },
-            { t: "ECDF haploblocks", i: "03_ecdf.png" },
-            { t: "Chromosome boxplots", i: "02_chr_boxplot.png" },
-            { t: "Size vs position", i: "06_size_vs_position.png" },
-            { t: "Genomic hash density", i: "07_density.png" },
-          ].map((f) => (
-            <div key={f.i} className="min-w-[85%] snap-center">
-              <h3 className="text-lg font-semibold mb-2">{f.t}</h3>
-              <img src={`/figures/${f.i}`} className="rounded-xl border bg-white" />
-            </div>
-          ))}
-        </div>
-      </section>
+      
+       
+   
 
       {/* MODELS */}
 <section id="models" className="py-24 bg-slate-900 text-white">
@@ -409,7 +429,7 @@ export default function App() {
 
         {/* MODEL FIGURE */}
         <img
-          src="/figures/models/med_snp_pipeline.png"
+          src="/figures/all_metrics_heatmap.png"
           alt="Med SNP Deconvolution"
           className="rounded-2xl border mb-8"
         />
