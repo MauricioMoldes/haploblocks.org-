@@ -45,6 +45,12 @@ export default function App() {
             >
               GitHub
             </a>
+            <a
+              href="https://github.com/collaborativebioinformatics/Haploblock_Clusters_ElixirBH25"
+              className="px-5 py-3 rounded-xl border border-slate-300 text-sm font-medium hover:bg-slate-100"
+            >
+              Dataset
+            </a>
           </div>
         </div>
 
@@ -263,35 +269,77 @@ export default function App() {
       </div>
     </div>
 
-    {/* CLUSTERING RESULTS */}
-<div className="mb-20">
+{/* CLUSTERING RESULTS */}
+<div className="mb-24">
 
   <h3 className="text-xl font-semibold mb-4">
-    Haploblock Clustering
+    Haploblock Clustering Landscape
   </h3>
 
-  <p className="text-slate-600 max-w-3xl mb-8">
-    Individuals sharing highly similar haplotypes within a haploblock are
-    grouped into clusters. Across populations, a small number of common
-    haplotypes account for most individuals, while a long tail of rare
-    clusters captures population-specific genomic diversity.
+  <p className="text-slate-600 max-w-3xl mb-10">
+    Haploblock clusters reveal how genomic backgrounds are shared across individuals.
+    Most haploblocks are dominated by a small number of common cluster states,
+    while a long tail of rare clusters captures fine-scale population structure,
+    ancestry-specific variation, and local recombination history.
   </p>
 
-  <div className="grid md:grid-cols-2 gap-8">
+  {/* CAROUSEL */}
+  <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory">
 
-    <div className="bg-white rounded-2xl border p-4">
-      <img src="/figures/haplotype_rank_abundance.png" />
-    </div>
+    {[
+      {
+        t: "Cluster rank–abundance (global structure)",
+        i: "01_rank_abundance_all_blocks.png"
+      },
+      {
+        t: "Cluster size distribution",
+        i: "02_cluster_size_histogram.png"
+      },
+      {
+        t: "Shannon entropy along genome",
+        i: "03_shannon_entropy_along_chr.png"
+      },
+      {
+        t: "Cluster dominance landscape",
+        i: "04_dominance_along_chr.png"
+      },
+      {
+        t: "Number of clusters per region",
+        i: "05_n_clusters_along_chr.png"
+      },
+      {
+        t: "Block length vs cluster complexity",
+        i: "06_block_length_vs_n_clusters.png"
+      },
+      {
+        t: "Singleton rate along genome",
+        i: "07_singleton_rate_along_chr.png"
+      },
+      {
+        t: "Haplotype balance across individuals",
+        i: "08_hap_balance_along_chr.png"
+      }
+    ].map((f) => (
+      <div key={f.i} className="min-w-[85%] snap-center">
 
-    <div className="bg-white rounded-2xl border p-4">
-      <img src="/figures/haplotype_bar_linear.png" />
-    </div>
+        <div className="mb-3 text-sm font-medium text-slate-700">
+          {f.t}
+        </div>
+
+        <img
+          src={`/figures/${f.i}`}
+          className="rounded-xl border bg-white shadow-sm"
+        />
+
+      </div>
+    ))}
 
   </div>
-
 </div>
 
   </div>
+
+
 </section>
 
       
@@ -400,69 +448,284 @@ export default function App() {
 
       </div>
 
+     
+
+
     </div>
 
-    {/* APPLICATIONS */}
+   {/* APPLICATIONS */}
+<div>
+
+  <h3 className="text-2xl font-semibold mb-8">
+    Applications
+  </h3>
+
+  <div className="space-y-10">
+
+    {/* ========================= */}
+    {/* APPLICATION 1 */}
+    {/* ========================= */}
+    <div className="relative bg-white text-slate-900 rounded-3xl p-8 shadow-sm border">
+
+      <h4 className="text-2xl font-bold mb-2">
+        Med_SNP_Deconvolution
+      </h4>
+
+      <div className="text-purple-700 font-medium mb-6">
+        Privacy-Preserving Ancestry Inference
+      </div>
+
+           <img
+          src="/figures/all_metrics_heatmap_gh.png"
+          className="w-full h-40 object-cover rounded-xl mb-6 border"
+          alt="Haploblock Graph Builder"
+        />
+     
+
+      <p className="text-slate-700 leading-relaxed mb-8">
+        Med_SNP_Deconvolution transforms phased variants into recombination-defined
+        haploblock cluster identifiers, enabling distributed ancestry inference while
+        preserving privacy through genomic hash representations.
+      </p>
+
+      <div className="flex gap-4">
+        <a
+          href="https://osf.io/preprints/biohackrxiv/5psfj_v1"
+          className="px-5 py-3 rounded-xl bg-slate-900 text-white"
+        >
+          Paper
+        </a>
+
+        <a
+          href="https://github.com/collaborativebioinformatics/Med_SNP_Deconvolution"
+          className="px-5 py-3 rounded-xl border"
+        >
+          GitHub
+        </a>
+      </div>
+
+        {/* INSTITUTION STRIP */}
+  <div className="absolute bottom-6 right-6 flex items-center gap-3 opacity-70">
+
+    <img
+      src="/figures/stanford-university.png"
+      className="h-8 w-auto object-contain"
+      alt="Institution 1"
+    />
+
+    <img
+      src="/figures/CMU_Logo_Stack_Red.png"
+      className="h-8 w-auto object-contain"
+      alt="Institution 2"
+    />
+
+  </div>
+
+    </div>
+{/* APPLICATION 2 */}
+<div className="relative bg-gradient-to-br from-indigo-50 to-purple-50 text-slate-900 rounded-3xl p-8 border border-indigo-100">
+
+  <h4 className="text-2xl font-bold mb-2">
+    Haploblock Predictive Modeling
+  </h4>
+
+  <div className="text-indigo-700 font-medium mb-6">
+    Genotype–Phenotype Mapping via Genomic Hashes
+  </div>
+
+  <div className="font-mono text-xs bg-slate-50 border rounded-xl p-4 overflow-x-auto">
+    yᵢ = Σₕ αᵢₕ (xᵢₕᵀ Uₕ) + β₀
+  </div>
+
+  <div className="mt-4 grid md:grid-cols-2 gap-4 text-xs text-slate-600">
     <div>
+      <b>yᵢ</b> phenotype<br />
+      <b>αᵢₕ</b> haploblock-specific weight<br />
+      <b>xᵢₕ</b> binary genomic hash vector
+    </div>
 
-      <h3 className="text-2xl font-semibold mb-8">
-        Applications
-      </h3>
+    <div>
+      <b>Uₕ</b> projection vector per haploblock<br />
+      <b>β₀</b> intercept<br />
+      learned via gradient descent (MSE loss)
+    </div>
+  </div>
 
-      <div className="bg-white text-slate-900 rounded-3xl p-8">
+  <p className="text-slate-700 leading-relaxed mb-8 mt-6">
+    Haploblock-level binary representations are used to learn structured
+    phenotype associations through weighted projection models over genomic hashes.
+  </p>
 
-        <h4 className="text-2xl font-bold mb-2">
-          Med_SNP_Deconvolution
-        </h4>
+  <div className="flex gap-4">
+    <a
+      href="https://osf.io/preprints/biohackrxiv/xhkc3_v1"
+      className="px-5 py-3 rounded-xl bg-slate-900 text-white"
+    >
+      Paper
+    </a>
 
-        <div className="text-purple-700 font-medium mb-6">
-          Privacy-Preserving Ancestry Inference
-        </div>
+    <a
+      href="https://github.com/collaborativebioinformatics/Haploblock_Clusters_ElixirBH25"
+      className="px-5 py-3 rounded-xl border"
+    >
+      GitHub
+    </a>
+  </div>
 
-        <p className="text-slate-700 leading-relaxed mb-8">
-          Med_SNP_Deconvolution transforms phased variants into
-          recombination-defined haploblock cluster identifiers. These genomic
-          hashes preserve population structure while obscuring individual-level
-          variation, enabling distributed ancestry prediction using XGBoost,
-          deep learning and NVIDIA FLARE federated learning infrastructure.
-        </p>
+  {/* INSTITUTION STRIP */}
+  <div className="absolute bottom-6 right-6 flex items-center gap-3 opacity-70">
 
-        {/* MODEL FIGURE */}
-        <img
-          src="/figures/all_metrics_heatmap.png"
-          alt="Med SNP Deconvolution"
-          className="rounded-2xl border mb-8"
+    <img
+      src="/figures/stanford-university.png"
+      className="h-8 w-auto object-contain"
+      alt="Institution 1"
+    />
+
+    <img
+      src="/figures/CMU_Logo_Stack_Red.png"
+      className="h-8 w-auto object-contain"
+      alt="Institution 2"
+    />
+
+  </div>
+
+</div>
+
+    {/* ========================= */}
+    {/* APPLICATION 3 */}
+    {/* ========================= */}
+    <div className="bg-white text-slate-900 rounded-3xl p-8 shadow-sm border">
+
+      <h4 className="text-2xl font-bold mb-2">
+        Haploblock Graph Builder
+      </h4>
+
+      <div className="text-slate-700 font-medium mb-6">
+        Co-occurrence Graphs of Genomic Background Structure
+      </div>
+
+      <img
+          src="/figures/haploblock_co_occurence_graph.png"
+          className="w-full h-40 object-cover rounded-xl mb-6 border"
+          alt="Haploblock Graph Builder"
         />
 
-        <div className="flex gap-4">
+      <p className="text-slate-700 leading-relaxed mb-8">
+        Converts haploblock clustering results into graph representations that encode
+        how genomic clusters co-occur across individuals, enabling network-based
+        modeling of genomic background structure.
+      </p>
 
-          <a
-            href="https://osf.io/preprints/biohackrxiv/5psfj_v1"
-            className="px-5 py-3 rounded-xl bg-slate-900 text-white"
-          >
-            Read Paper
-          </a>
+      <ul className="text-sm text-slate-600 mb-8 space-y-1">
+        <li>• genotype–phenotype association</li>
+        <li>• genomic background modeling</li>
+        <li>• network feature extraction</li>
+        <li>• ML on genomic hashes</li>
+      </ul>
 
-          <a
-            href="https://github.com/collaborativebioinformatics/Med_SNP_Deconvolution"
-            className="px-5 py-3 rounded-xl border"
-          >
-            GitHub
-          </a>
+      <div className="flex gap-4">
+        <a
+          href="https://github.com/MauricioMoldes/haploblock-graph-builder"
+          className="px-5 py-3 rounded-xl bg-slate-900 text-white"
+        >
+          GitHub
+        </a>
 
-        </div>
+        <a
+          href="#"
+          className="px-5 py-3 rounded-xl border opacity-60 pointer-events-none"
+        >
+          Paper (coming soon)
+        </a>
+      </div>
 
+    </div>
+
+    {/* ========================= */}
+    {/* APPLICATION 4 */}
+    {/* ========================= */}
+    <div className="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 rounded-3xl p-8 border">
+
+      <h4 className="text-2xl font-bold mb-2">
+        Synthetic Node Expansion
+      </h4>
+
+      <div className="text-slate-700 font-medium mb-6">
+        Expanding Genomic Hash Spaces via Generative Structures
+      </div>
+
+      <img
+        src="/figures/haploblock_synthethic_expansion_pipeline.png"
+        className="w-full h-40 object-cover rounded-xl mb-6 border"
+        alt="Haploblock Graph Builder"
+      />
+
+      <p className="text-slate-700 leading-relaxed mb-8">
+        Synthetic node expansion generates augmented haploblock representations to
+        increase resolution of sparse genomic regions and improve robustness of
+        downstream predictive models.
+      </p>
+
+      <div className="flex gap-4">
+
+        <a
+          href="https://github.com/collaborativebioinformatics/Network_modeling_multimodal_v003"
+          className="px-5 py-3 rounded-xl bg-slate-900 text-white"
+        >
+          GitHub 
+        </a>
+
+        <a
+          href="#"
+          className="px-5 py-3 rounded-xl bg-slate-900 text-white opacity-60 pointer-events-none"
+        >
+          Paper (coming soon)
+        </a>
+        
       </div>
 
     </div>
 
   </div>
+</div>
+
+  </div>
 </section>
 
-      {/* FOOTER */}
-      <footer className="max-w-6xl mx-auto px-8 py-10 text-sm text-slate-500">
-        © {new Date().getFullYear()} Haploblocks Project
-      </footer>
+{/* FOOTER */}
+<footer className="max-w-6xl mx-auto px-8 py-10 text-sm text-slate-500">
+
+  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+
+    <div>
+      © {new Date().getFullYear()} Haploblocks Project
+    </div>
+
+    <div className="flex items-center gap-8 opacity-80">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Amazon_Web_Services_2025.svg/500px-Amazon_Web_Services_2025.svg.png"
+        className="h-8 object-contain"
+        alt="AWS Open Data Registry"
+      />
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Logo-nvidia-transparent-PNG.png"
+        className="h-8 object-contain"
+        alt="NVIDIA"
+      />
+
+      <img
+        src="/logos/gefion.png"
+        className="h-8 object-contain"
+        alt="Gefion HPC"
+      />
+
+    </div>
+
+  </div>
+
+</footer>
     </div>
   );
 }
