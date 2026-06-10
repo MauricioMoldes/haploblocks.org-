@@ -191,7 +191,7 @@ export default function App() {
           </div>
           </div>
 
-         
+
  
           {/* CLUSTERING RESULTS */}
           <div>
@@ -204,14 +204,13 @@ export default function App() {
             </p>
             <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory">
               {[
-                { t: "Cluster rank–abundance (global structure)", i: "01_rank_abundance_all_blocks.png" },
-                { t: "Cluster size distribution",                 i: "02_cluster_size_histogram.png" },
-                { t: "Shannon entropy along genome",              i: "03_shannon_entropy_along_chr.png" },
-                { t: "Cluster dominance landscape",               i: "04_dominance_along_chr.png" },
-                { t: "Number of clusters per region",             i: "05_n_clusters_along_chr.png" },
-                { t: "Block length vs cluster complexity",        i: "06_block_length_vs_n_clusters.png" },
-                { t: "Singleton rate along genome",               i: "07_singleton_rate_along_chr.png" },
-                { t: "Haplotype balance across individuals",      i: "08_hap_balance_along_chr.png" },
+                { t: "Cluster rank–abundance (global structure)", i: "08_rank_abundance_all_chromosomes.png" },
+                { t: "Shannon Entropy per Chromossome",                 i: "02_entropy_per_chromosome.png" },
+                { t: "Dominance per Chromossome",              i: "03_dominance_per_chromosome.png" },
+                { t: "Entropy Genome Wide ",               i: "04_entropy_genome_wide.png" },
+                { t: "Dominance Genome Wide.png",             i: "05_dominance_genome_wide.png" },
+                { t: "Singleton Rate Per Chromosome.png",        i: "06_singleton_rate_per_chromosome.png" },
+                { t: "happloytp Balance per Chromossome",               i: "07_hap_balance_per_chromosome.png" }                
               ].map((f) => (
                 <div key={f.i} className="min-w-[85%] snap-center">
                   <div className="mb-3 text-sm font-medium text-slate-700">{f.t}</div>
