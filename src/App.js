@@ -154,26 +154,44 @@ export default function App() {
             </div>
           </div>
  
+01_size_distribution.pdf     04_blocks_per_chr.pdf     07_density_per_chr.pdf
+01_size_distribution.png     04_blocks_per_chr.png     07_density_per_chr.png
+02_size_per_chr_boxplot.pdf  05_mean_size_per_chr.pdf  08_size_violin_per_chr.pdf
+02_size_per_chr_boxplot.png  05_mean_size_per_chr.png  08_size_violin_per_chr.png
+03_ecdf.pdf                  06_size_vs_position.pdf   09_cumulative_coverage.pdf
+03_ecdf.png                  06_size_vs_position.png   09_cumulative_coverage.png
+
+
+
           {/* GENOME-WIDE FIGURES */}
           <div className="mb-20">
             <h3 className="text-xl font-semibold mb-6">Genome-wide structure</h3>
             <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory">
               {[
                 { t: "Size distribution",       i: "01_size_distribution.png" },
+                { t: "Size distribution per Chromossome",       i: "02_size_per_chr_boxplot.png" },
+                { t: "ECDF",       i: "03_ecdf.png" },
                 { t: "Blocks per chromosome",    i: "04_blocks_per_chr.png" },
-                { t: "Mean size per chromosome", i: "05_mean_size_chr.png" },
-                { t: "ECDF distribution",        i: "03_ecdf.png" },
-                { t: "Chromosome variability",   i: "02_chr_boxplot.png" },
+                { t: "Mean size per chromosome", i: "05_mean_size_chr.png" },               
                 { t: "Size vs genomic position", i: "06_size_vs_position.png" },
-                { t: "Genomic hash density",     i: "07_density.png" },
+                { t: "Genomic hash density",     i: "07_density_per_chr.png" },
+                { t: "Size Violin", i: "08_size_violin_per_chr.png" },
+                { t: "Cumulative Coverage",     i: "09_cumulative_coverage.png" }
               ].map((f) => (
                 <div key={f.i} className="min-w-[85%] snap-center">
                   <div className="mb-3 text-sm font-medium text-slate-700">{f.t}</div>
                   <img src={`/figures/${f.i}`} className="rounded-xl border bg-white shadow-sm" alt={f.t} />
                 </div>
               ))}
-            </div>
+            </div>               
+
+            <div className="flex gap-4">
+                  <a href="https://github.com/collaborativebioinformatics/Network_modeling_multimodal_v003" className="px-5 py-3 rounded-xl bg-slate-900 text-white">View results on GitHub</a>
+          
           </div>
+          </div>
+
+         
  
           {/* CLUSTERING RESULTS */}
           <div>
@@ -201,6 +219,10 @@ export default function App() {
                 </div>
               ))}
             </div>
+            <div className="flex gap-4">
+                  <a href="https://github.com/collaborativebioinformatics/Network_modeling_multimodal_v003" className="px-5 py-3 rounded-xl bg-slate-900 text-white">View results on GitHub</a>
+          
+          </div>
           </div>
  
         </div>
