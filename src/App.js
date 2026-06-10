@@ -14,7 +14,7 @@ export default function App() {
           <a href="#abstract" className="hover:text-slate-900">Abstract</a>
           <a href="#pipeline" className="hover:text-slate-900">Pipeline</a>
           <a href="#results" className="hover:text-slate-900">Results</a>
-          <a href="#paper" className="hover:text-slate-900">Paper</a>
+          <a href="#modeling" className="hover:text-slate-900">Modeling</a>
         </nav>
       </header>
  
@@ -207,7 +207,7 @@ export default function App() {
       </section>
  
       {/* PREDICTIVE MODELING */}
-      <section id="models" className="bg-slate-900 text-white">
+      <section id="modeling" className="bg-slate-900 text-white">
         <div className={`${SECTION_MAX} ${SECTION_PAD}`}>
  
           <div className="mb-16">
@@ -314,8 +314,10 @@ export default function App() {
                   <a href="https://github.com/collaborativebioinformatics/Haploblock_Clusters_ElixirBH25" className="px-5 py-3 rounded-xl border border-slate-300">GitHub</a>
                 </div>
                 <div className="absolute bottom-6 right-6 flex items-center gap-3 opacity-70">
-                  <img src="/figures/stanford-university.png" className="h-8 w-auto object-contain" alt="Stanford" />
-                  <img src="/figures/CMU_Logo_Stack_Red.png" className="h-8 w-auto object-contain" alt="CMU" />
+                  <img src="/figures/Logo_Rigshospitalet.png" className="h-8 w-auto object-contain" alt="Stanford" />
+                  <img src="/figures/logo-pi.png" className="h-8 w-auto object-contain" alt="CMU" />
+	            <img src="/figures/logo-pi.png" className="h-8 w-auto object-contain" alt="CMU" />
+	            <img src="/figures/CMU_Logo_Stack_Red.png" className="h-8 w-auto object-contain" alt="CMU" />
                 </div>
               </div>
  
