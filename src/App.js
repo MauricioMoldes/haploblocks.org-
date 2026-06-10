@@ -37,7 +37,7 @@ export default function App() {
             <a href="https://github.com/collaborativebioinformatics/Haploblock_Clusters_ElixirBH25" className="px-5 py-3 rounded-xl border border-slate-300 text-sm font-medium hover:bg-slate-100">
               GitHub
             </a>
-            <a href="https://github.com/collaborativebioinformatics/Haploblock_Clusters_ElixirBH25" className="px-5 py-3 rounded-xl border border-slate-300 text-sm font-medium hover:bg-slate-100">
+            <a href="#" className="px-5 py-3 rounded-xl border border-slate-300 text-sm font-medium hover:bg-slate-100">
               Dataset
             </a>
           </div>
@@ -280,10 +280,12 @@ export default function App() {
                   <a href="https://osf.io/preprints/biohackrxiv/5psfj_v1" className="px-5 py-3 rounded-xl bg-slate-900 text-white">Paper</a>
                   <a href="https://github.com/collaborativebioinformatics/Med_SNP_Deconvolution" className="px-5 py-3 rounded-xl border">GitHub</a>
                 </div>
+                {/*
                 <div className="absolute bottom-6 right-6 flex items-center gap-3 opacity-70">
                   <img src="/figures/stanford-university.png" className="h-8 w-auto object-contain" alt="Stanford" />
                   <img src="/figures/CMU_Logo_Stack_Red.png" className="h-8 w-auto object-contain" alt="CMU" />
                 </div>
+                */}
               </div>
  
               {/* APP 2 */}
@@ -313,12 +315,14 @@ export default function App() {
                   <a href="https://osf.io/preprints/biohackrxiv/xhkc3_v1" className="px-5 py-3 rounded-xl bg-slate-900 text-white">Paper</a>
                   <a href="https://github.com/collaborativebioinformatics/Haploblock_Clusters_ElixirBH25" className="px-5 py-3 rounded-xl border border-slate-300">GitHub</a>
                 </div>
+                {/*
                 <div className="absolute bottom-6 right-6 flex items-center gap-3 opacity-70">
                   <img src="/figures/Logo_Rigshospitalet.png" className="h-8 w-auto object-contain" alt="Stanford" />
                   <img src="/figures/logo-pi.png" className="h-8 w-auto object-contain" alt="CMU" />
 	            <img src="/figures/logo-pi.png" className="h-8 w-auto object-contain" alt="CMU" />
 	            <img src="/figures/CMU_Logo_Stack_Red.png" className="h-8 w-auto object-contain" alt="CMU" />
                 </div>
+                */}
               </div>
  
               {/* APP 3 */}
@@ -355,7 +359,7 @@ export default function App() {
                 </p>
                 <div className="flex gap-4">
                   <a href="https://github.com/collaborativebioinformatics/Network_modeling_multimodal_v003" className="px-5 py-3 rounded-xl bg-slate-900 text-white">GitHub</a>
-                  <a href="#" className="px-5 py-3 rounded-xl bg-slate-900 text-white opacity-60 pointer-events-none">Paper (coming soon)</a>
+                  <a href="#" className="px-5 py-3 rounded-xl border opacity-60 pointer-events-none">Paper (coming soon)</a>
                 </div>
               </div>
  
@@ -369,11 +373,13 @@ export default function App() {
       <footer className="max-w-6xl mx-auto px-8 py-10 text-sm text-slate-500">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>© {new Date().getFullYear()} Haploblocks Project</div>
+          {/*
           <div className="flex items-center gap-8 opacity-80">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Amazon_Web_Services_2025.svg/500px-Amazon_Web_Services_2025.svg.png" className="h-8 object-contain" alt="AWS Open Data Registry" />
             <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Logo-nvidia-transparent-PNG.png" className="h-8 object-contain" alt="NVIDIA" />
             <img src="/logos/gefion.png" className="h-8 object-contain" alt="Gefion HPC" />
           </div>
+          */}
         </div>
       </footer>
  
