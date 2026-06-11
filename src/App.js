@@ -154,14 +154,6 @@ export default function App() {
             </div>
           </div>
  
-01_size_distribution.pdf     04_blocks_per_chr.pdf     07_density_per_chr.pdf
-01_size_distribution.png     04_blocks_per_chr.png     07_density_per_chr.png
-02_size_per_chr_boxplot.pdf  05_mean_size_per_chr.pdf  08_size_violin_per_chr.pdf
-02_size_per_chr_boxplot.png  05_mean_size_per_chr.png  08_size_violin_per_chr.png
-03_ecdf.pdf                  06_size_vs_position.pdf   09_cumulative_coverage.pdf
-03_ecdf.png                  06_size_vs_position.png   09_cumulative_coverage.png
-
-
 
           {/* GENOME-WIDE FIGURES */}
           <div className="mb-20">
@@ -186,7 +178,7 @@ export default function App() {
             </div>               
 
             <div className="flex gap-4">
-                  <a href="https://github.com/collaborativebioinformatics/Network_modeling_multimodal_v003" className="px-5 py-3 rounded-xl bg-slate-900 text-white">View results on GitHub</a>
+                  <a href="https://github.com/MauricioMoldes/haploblocks-qc" className="px-5 py-3 rounded-xl bg-slate-900 text-white">View results on GitHub</a>
           
           </div>
           </div>
@@ -219,7 +211,7 @@ export default function App() {
               ))}
             </div>
             <div className="flex gap-4">
-                  <a href="https://github.com/collaborativebioinformatics/Network_modeling_multimodal_v003" className="px-5 py-3 rounded-xl bg-slate-900 text-white">View results on GitHub</a>
+                  <a href="https://github.com/MauricioMoldes/haploblocks-qc" className="px-5 py-3 rounded-xl bg-slate-900 text-white">View results on GitHub</a>
           
           </div>
           </div>
